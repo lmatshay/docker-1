@@ -1,1 +1,4 @@
-docker-machine env Char
+#!/bin/bash
+
+docker-machine start Char
+eval $(docker-machine env Char)
