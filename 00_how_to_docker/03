@@ -1,4 +1,5 @@
 #!/bin/bash
 
+#run as source
 docker-machine start Char
 eval $(docker-machine env Char)
