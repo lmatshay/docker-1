@@ -1,0 +1,3 @@
+ docker stop Abathur
+ docker rm Abathur
+ clear
