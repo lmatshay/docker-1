@@ -1,1 +1,2 @@
 docker-machine create Aiur
+docker-machine start Aiur

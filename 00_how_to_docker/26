@@ -1,1 +1,5 @@
-docker sevice start  orbital-command  
+docker service create --replicas 2 -d --name engineering-bay  \
+--network=overmind \
+-e OC_USERNAME=lu  \
+-e OC_PASSWD=pass \
+42school/engineering-bay
