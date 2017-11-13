@@ -1,0 +1,2 @@
+docker build -t lu  . 
+docker run -it lu

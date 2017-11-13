@@ -1,12 +1,16 @@
-FROM ruby:2.3
-RUN apt-get update &&\
-    apt-get install -y --no-install-recommends  postgresql-client &&\
-    rm -rf /var/lib/apt/lists/*
+FROM ruby
 
-WORKDIR /usr/src/app
-COPY Gemfile* /opt/app
-RUN bundle install
-COPY . .
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
+	apt-get install nodejs -y && \
+	gem install rails bundler
 
-EXPOSE 3000
-CMD ["rails", "server", "-b", "0.0.0.0"]
+
+
+ONBUILD WORKDIR /opt
+
+ONBUILD RUN rails new app
+ONBUILD WORKDIR /opt/app
+ONBUILD RUN bundle install
+ONBUILD RUN rails generate migration CreateProducts name:string
+ONBUILD RUN rake db:migrate

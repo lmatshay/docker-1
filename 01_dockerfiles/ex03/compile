@@ -1,0 +1,2 @@
+docker build -t gman .
+docker run -d  --publish 8022:22 --publish 3000:3000 -v `pwd`/gogs-data/:/data gman
